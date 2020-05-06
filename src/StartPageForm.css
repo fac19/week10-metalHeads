@@ -1,0 +1,22 @@
+.start-page-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.start-page-form form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.start-page-form form > * {
+    padding: 1rem;
+}
+
+.start-page-form__input-group {
+    display: flex;
+}
