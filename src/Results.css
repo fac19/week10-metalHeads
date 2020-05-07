@@ -1,0 +1,13 @@
+.Results {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+}
+
+.Results__img {
+    max-height: 50%;
+}

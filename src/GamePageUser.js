@@ -9,9 +9,7 @@ function GamePageUser(props) {
                 src={props.githubPicUrl}
                 alt="Game user"
             />
-            <span className="GamePageUser__username">
-                {props.githubName}username
-            </span>
+            <span className="GamePageUser__username">{props.githubName}</span>
         </div>
     );
 }
