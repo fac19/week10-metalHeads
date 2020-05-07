@@ -15,7 +15,7 @@ function App() {
     );
     const [gameState, setGameState] = useState("start");
     const [questionCount, setQuestionCount] = useState(1);
-    const [totalQuestions, setTotalQuestions] = useState(5);
+    const [totalQuestions] = useState(5);
     const [difficulty, setDifficulty] = useState(3);
     const [score, setScore] = useState(0);
 
@@ -24,7 +24,11 @@ function App() {
             <header className="App-header">
                 <div className="score">
                     {gameState === "game" && (
-                        <Score score={score} totalQuestions={totalQuestions} />
+                        <Score
+                            score={score}
+                            questionCount={questionCount}
+                            totalQuestions={totalQuestions}
+                        />
                     )}
                 </div>
 

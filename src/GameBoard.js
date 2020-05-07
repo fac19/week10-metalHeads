@@ -23,16 +23,12 @@ const characterList = [
 ];
 
 function GameBoard(props) {
-    // const {questionCount} = props;
-    console.log("GAME BOARD IS RUNNING");
     const [question, setQuestion] = useState("");
     const [characters, setCharacters] = useState([...characterList]);
     const [rightAnswer, setRightAnswer] = useState("");
     const [answerList, setAnswerList] = useState([]);
-    // const [rightAnswerLongName, setRightAsnwerLongName] = useState("Dummy Dum")
 
     useEffect(() => {
-        console.log("questionCount is: " + props.questionCount);
         props.setGameState("game");
 
         const chars = [...characters];
@@ -40,18 +36,15 @@ function GameBoard(props) {
         const choice = chars.splice(idx, 1)[0];
         setCharacters(chars);
         setRightAnswer(choice);
-        console.log("OUR RANDOM CHOICE OF CHARACTER TO QUERY WITH IS:", choice);
-        console.log(
-            `https://got-quotes.herokuapp.com/quotes?char=${choice.shortName}`
-        );
+
         fetch(
             `https://got-quotes.herokuapp.com/quotes?char=${choice.shortName}`
         )
             .then(errIfNot200ish)
             .then(decodeJSONOrDie)
             .then(({quote, character}) => {
-                console.log("OUR ANSWER IS:", character);
-                console.log("OUR QUOTE IS:", quote);
+                // console.log("OUR ANSWER IS:", character);
+                // console.log("OUR QUOTE IS:", quote);
                 setQuestion(quote);
 
                 const tmpAnswerList = [];
@@ -65,7 +58,7 @@ function GameBoard(props) {
                     tmpAnswerList.push(wrongAnswers.splice(idx, 1)[0]);
                 }
                 tmpAnswerList[getRandomInt(props.difficulty)] = choice;
-                console.log("WE think right answer is:", choice);
+
                 setAnswerList(tmpAnswerList);
             })
             .catch((err) => {
@@ -85,8 +78,9 @@ function GameBoard(props) {
             <div className="GameBoard__question">Who said it ?</div>
             <div className="GameBoard__quote">{question}</div>
             <div className="GameBoard__answers">
-                {answerList.map((answer) => (
+                {answerList.map((answer, index) => (
                     <Answer
+                        key={index}
                         thisAnswer={answer}
                         rightAnswer={rightAnswer}
                         setScore={props.setScore}

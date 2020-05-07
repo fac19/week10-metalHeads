@@ -27,8 +27,6 @@ function Answer(props) {
 
         if (props.thisAnswer.shortName === props.rightAnswer.shortName) {
             setIsAnswerCorrect("correct");
-
-            // console.log("score & diff:", props.score, props.difficulty);
             props.setScore(props.score + 1);
         } else {
             setIsAnswerCorrect("wrong");
@@ -36,13 +34,6 @@ function Answer(props) {
 
         setTimeout(() => {
             setIsAnswerCorrect("");
-
-            console.log(
-                "IN TIMEOUT:",
-                props.questionCount,
-                props.totalQuestions,
-                props.questionCount
-            );
 
             if (props.questionCount === props.totalQuestions) {
                 props.setGameState("results");
@@ -61,8 +52,12 @@ function Answer(props) {
                     ".jpg")}
                 alt="quiz answer button"
             ></img>
-            <span>{props.thisAnswer.longName}</span>
-            <span>{isAnswerCorrect}</span>
+            <span className="Answer__characterName">
+                {props.thisAnswer.longName}
+            </span>
+            <span className={"Answer__isAnswerRight " + isAnswerCorrect}>
+                {isAnswerCorrect}
+            </span>
         </button>
     );
 }

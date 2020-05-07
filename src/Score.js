@@ -5,7 +5,9 @@ function Score(props) {
     return (
         <div className="Score">
             <span>
-                Score: {props.score}/{props.totalQuestions}
+                Question: {props.questionCount}/{props.totalQuestions}
+                <br />
+                Score: {props.score}
             </span>
         </div>
     );
