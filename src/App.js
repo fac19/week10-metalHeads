@@ -7,6 +7,7 @@ import Results from "./Results";
 import "./App.css";
 // logo
 import GameLogo from "./img/gameLogo";
+import TorchImage from "./img/TorchImage";
 
 function App() {
     const [githubName, setGithubName] = useState("");
@@ -28,31 +29,14 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <div className="score">
-                    {gameState === "game" && (
-                        <Score
-                            score={score}
-                            questionCount={questionCount}
-                            totalQuestions={totalQuestions}
-                        />
-                    )}
-                </div>
-
                 <div className="logo">
                     <GameLogo color="white" />
                 </div>
-
-                <div className="username">
-                    {gameState === "game" && (
-                        <GamePageUser
-                            githubName={githubName}
-                            githubPicUrl={githubPicUrl}
-                        />
-                    )}
-                </div>
             </header>
             <div className="App_container">
-                <aside className="App__game__container__left">torch</aside>
+                <aside className="App__game__container__left">
+                    <TorchImage color="white" />
+                </aside>
 
                 <div className="App__gameContainer">
                     {gameState === "start" && (
@@ -88,10 +72,34 @@ function App() {
                     )}
                 </div>
 
-                <aside className="App__game__container__right">torch</aside>
+                <aside className="App__game__container__right">
+                    {" "}
+                    <TorchImage color="white" />
+                </aside>
             </div>
 
-            <footer className="App__footer"></footer>
+            <footer className="App__footer">
+                <div className="level">
+                    Difficulty : {difficulty === 3 ? " Easy" : " Hard"}
+                </div>
+                <div className="score">
+                    {gameState === "game" && (
+                        <Score
+                            score={score}
+                            questionCount={questionCount}
+                            totalQuestions={totalQuestions}
+                        />
+                    )}
+                </div>
+                <div className="username">
+                    {gameState === "game" && (
+                        <GamePageUser
+                            githubName={githubName}
+                            githubPicUrl={githubPicUrl}
+                        />
+                    )}
+                </div>
+            </footer>
         </div>
     );
 }
