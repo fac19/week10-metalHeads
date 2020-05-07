@@ -80,7 +80,11 @@ function App() {
 
             <footer className="App__footer">
                 <div className="level">
-                    Difficulty : {difficulty === 3 ? " Easy" : " Hard"}
+                    {gameState === "game" && (
+                        <span>
+                            Difficulty : {difficulty === 3 ? " Easy" : " Hard"}
+                        </span>
+                    )}
                 </div>
                 <div className="score">
                     {gameState === "game" && (

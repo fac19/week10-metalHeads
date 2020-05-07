@@ -17,9 +17,8 @@ function Results(props) {
     return (
         <div className="Results">
             <div className="Results__topRow">
-                <span className="Results__topRow__text">{props.score}</span>/
-                <span className="Results__topRow__score">
-                    {props.totalQuestions}
+                <span className="Results__topRow__text">
+                    You scored {props.score} out of {props.totalQuestions}
                 </span>
             </div>
             <img
