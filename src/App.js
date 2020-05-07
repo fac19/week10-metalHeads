@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import StartPageForm from "./StartPageForm";
 import "./App.css";
+// logo
+import GameLogo from "./img/gameLogo";
 
 function App() {
     const [githubName, setGithubName] = useState("");
@@ -14,7 +16,10 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                {<div className="logo">logo goes here</div>}
+                <div className="logo">
+                    <GameLogo color="white" />
+                </div>
+
                 {/* name component will go here */}
             </header>
             <div className="App_container">
