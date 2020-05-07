@@ -28,13 +28,7 @@ function Results(props) {
                 alt="Result visual representation"
             ></img>
             <p className="Results__zinger">{resultPics[props.score].zinger}</p>
-            <button
-                className="Results__button"
-                onClick={() => {
-                    props.setQuestionCount(1);
-                    props.setGameState("game");
-                }}
-            >
+            <button className="Results__button" onClick={props.resetGame}>
                 New game
             </button>
         </div>
