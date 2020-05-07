@@ -23,27 +23,8 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <div className="score">
-                    {gameState === "game" && (
-                        <Score
-                            score={score}
-                            questionCount={questionCount}
-                            totalQuestions={totalQuestions}
-                        />
-                    )}
-                </div>
-
                 <div className="logo">
                     <GameLogo color="white" />
-                </div>
-
-                <div className="username">
-                    {gameState === "game" && (
-                        <GamePageUser
-                            githubName={githubName}
-                            githubPicUrl={githubPicUrl}
-                        />
-                    )}
                 </div>
             </header>
             <div className="App_container">
@@ -88,7 +69,28 @@ function App() {
                 </aside>
             </div>
 
-            <footer className="App__footer"></footer>
+            <footer className="App__footer">
+                <div className="level">
+                    Difficulty : {difficulty === 3 ? "Easy" : "Hard"}
+                </div>
+                <div className="score">
+                    {gameState === "game" && (
+                        <Score
+                            score={score}
+                            questionCount={questionCount}
+                            totalQuestions={totalQuestions}
+                        />
+                    )}
+                </div>
+                <div className="username">
+                    {gameState === "game" && (
+                        <GamePageUser
+                            githubName={githubName}
+                            githubPicUrl={githubPicUrl}
+                        />
+                    )}
+                </div>
+            </footer>
         </div>
     );
 }
