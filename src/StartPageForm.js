@@ -1,18 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 import "./StartPageForm.css";
 import {errIfNot200ish, decodeJSONOrDie} from "./utils";
 
 const StartPageForm = (props) => {
-    // const [githubName, setGithubName] = useState("");
-
     function handleSubmit(e) {
         e.preventDefault();
-        console.log("Submitting");
         fetch(`https://api.github.com/users/${props.githubName}`)
             .then(errIfNot200ish)
             .then(decodeJSONOrDie)
             .then((res) => {
-                console.log("RES:", res);
                 props.setGithubPicUrl(res.avatar_url);
                 props.setGameState("game");
             })
@@ -32,7 +28,6 @@ const StartPageForm = (props) => {
                     name="githubName"
                     placeholder="Enter you github username"
                     onChange={(e) => {
-                        console.log(e.target.value);
                         props.setGithubName(e.target.value);
                     }}
                 />

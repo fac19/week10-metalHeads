@@ -5,13 +5,15 @@ const resultPics = {
     0: {zinger: "Shame!", pic: "Shame.jpg"},
     1: {zinger: "Pathetic.", pic: "Pathetic.jpg"},
     2: {zinger: "Looks like you choked!", pic: "Looks-like-you-choked.jpg"},
-    3: {zinger: "Nice try but we hoped for more", pic: "We-hoped-for-more.jpg"},
+    3: {
+        zinger: "Nice try, but we hoped for a lot more",
+        pic: "We-hoped-for-more.jpg"
+    },
     4: {zinger: "Pretty badass!", pic: "Pretty-badass.jpg"},
     5: {zinger: "King in the North!", pic: "King-in-the-north.jpg"}
 };
 
 function Results(props) {
-    console.log("Results" + resultPics[props.score], props.score);
     return (
         <div className="Results">
             <div className="Results__topRow">

@@ -10,6 +10,7 @@
     max-width: 12vw;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .Answer__img {
@@ -18,4 +19,25 @@
 
 .Answer span {
     padding: 1rem;
+}
+
+.Answer__isAnswerRight {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 2rem;
+    /* background-color: rgba(255, 255, 255, 0.7); */
+}
+
+.correct {
+    background-color: rgba(96, 168, 55, 0.7);
+}
+
+.wrong {
+    background-color: rgba(210, 64, 27, 0.7);
 }
