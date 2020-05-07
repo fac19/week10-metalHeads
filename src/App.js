@@ -59,6 +59,7 @@ function App() {
                             score={score}
                             totalQuestions={totalQuestions}
                             setGameState={setGameState}
+                            setQuestionCount={setQuestionCount}
                         />
                     )}
                 </div>

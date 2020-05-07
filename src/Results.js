@@ -30,7 +30,10 @@ function Results(props) {
             <p className="Results__zinger">{resultPics[props.score].zinger}</p>
             <button
                 className="Results__button"
-                onClick={() => props.setGameState("game")}
+                onClick={() => {
+                    props.setQuestionCount(1);
+                    props.setGameState("game");
+                }}
             >
                 New game
             </button>
