@@ -7,13 +7,14 @@ import Results from "./Results";
 import "./App.css";
 // logo
 import GameLogo from "./img/gameLogo";
+import TorchImage from "./img/TorchImage";
 
 function App() {
     const [githubName, setGithubName] = useState("");
     const [githubPicUrl, setGithubPicUrl] = useState(
         "https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg"
     );
-    const [gameState, setGameState] = useState("start");
+    const [gameState, setGameState] = useState("game");
     const [questionCount, setQuestionCount] = useState(1);
     const [totalQuestions] = useState(5);
     const [difficulty, setDifficulty] = useState(3);
@@ -46,7 +47,9 @@ function App() {
                 </div>
             </header>
             <div className="App_container">
-                <aside className="App__game__container__left">torch</aside>
+                <aside className="App__game__container__left">
+                    <TorchImage color="white" />
+                </aside>
 
                 <div className="App__gameContainer">
                     {gameState === "start" && (
@@ -79,7 +82,10 @@ function App() {
                     )}
                 </div>
 
-                <aside className="App__game__container__right">torch</aside>
+                <aside className="App__game__container__right">
+                    {" "}
+                    <TorchImage color="white" />
+                </aside>
             </div>
 
             <footer className="App__footer"></footer>

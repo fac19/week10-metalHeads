@@ -4,26 +4,14 @@ import "./Answer.css";
 function Answer(props) {
     const [isAnswerCorrect, setIsAnswerCorrect] = useState("");
 
-    // useEffect(() => {
-    //     document.querySelector(".Answer").addEventListener("click", () => {
-    //         handleAnswerClick();
-    //     });
-    //     // return (() => {
-
-    //     // })
-    // }, [isAnswerCorrect]);
-
     if (!props.thisAnswer) return null;
 
     const handleAnswerClick = (event) => {
-        // document.querySelectorAll("button").forEach((button) => {
-        //     console.log(button);
-        //     button.disabled = true;
-        // });
-
-        // document.querySelectorAll(".Answer").forEach((answer) => {
-        //     answer.removeEventListener("click", () => handleAnswerClick());
-        // });
+        // disable pointer events so elemnt cannot be clicked again
+        document.querySelectorAll("button").forEach((button) => {
+            console.log(button);
+            button.style.pointerEvents = "none";
+        });
 
         if (props.thisAnswer.shortName === props.rightAnswer.shortName) {
             setIsAnswerCorrect("correct");
@@ -34,13 +22,17 @@ function Answer(props) {
 
         setTimeout(() => {
             setIsAnswerCorrect("");
-
+            // re-enable pointer events so elemnt can be clicked again once component reloads
+            document.querySelectorAll("button").forEach((button) => {
+                console.log(button);
+                button.style.pointerEvents = "auto";
+            });
             if (props.questionCount === props.totalQuestions) {
                 props.setGameState("results");
             } else {
                 props.setQuestionCount(props.questionCount + 1);
             }
-        }, 3000);
+        }, 2000);
     };
 
     return (

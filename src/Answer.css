@@ -14,6 +14,10 @@
     min-width: 25vw;
 }
 
+.Answer:hover {
+    opacity: 0.8;
+}
+
 .Answer__img {
     max-width: 10vw;
 }
@@ -32,6 +36,7 @@
     font-weight: bold;
     font-size: 2rem;
     border-radius: 2rem;
+    z-index: 10;
     /* background-color: rgba(255, 255, 255, 0.7); */
 }
 

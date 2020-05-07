@@ -5,10 +5,21 @@
     justify-content: space-around;
     align-items: center;
     height: 100%;
+    background-image: url("https://images5.alphacoders.com/637/thumb-1920-637668.jpg");
 }
 
 .GameBoard__answers {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+.GameBoard__question {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.GameBoard__quote {
+    font-size: 1.8rem;
 }

@@ -76,7 +76,11 @@ function GameBoard(props) {
     return (
         <div className="GameBoard">
             <div className="GameBoard__question">Who said it ?</div>
-            <div className="GameBoard__quote">{question}</div>
+            <div className="GameBoard__quote">
+                <q>
+                    <em>{question}</em>
+                </q>
+            </div>
             <div className="GameBoard__answers">
                 {answerList.map((answer, index) => (
                     <Answer
