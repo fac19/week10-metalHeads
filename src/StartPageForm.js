@@ -1,12 +1,25 @@
 import React, {useState} from "react";
 import "./StartPageForm.css";
+import {errIfNot200ish, decodeJSONOrDie} from "./utils";
 
 const StartPageForm = (props) => {
-    const [githubName, setGithubName] = useState("");
+    // const [githubName, setGithubName] = useState("");
 
     function handleSubmit(e) {
         e.preventDefault();
-        props.setGithubName(githubName);
+        console.log("Submitting");
+        fetch(`https://api.github.com/users/${props.githubName}`)
+            .then(errIfNot200ish)
+            .then(decodeJSONOrDie)
+            .then((res) => {
+                console.log("RES:", res);
+                props.setGithubPicUrl(res.avatar_url);
+                props.setGameState("game");
+            })
+            .catch((err) => {
+                console.log("Problem getting profile pic, using default", err);
+                props.setGameState("game");
+            });
     }
 
     return (
@@ -20,7 +33,7 @@ const StartPageForm = (props) => {
                     placeholder="Enter you github username"
                     onChange={(e) => {
                         console.log(e.target.value);
-                        setGithubName(e.target.value);
+                        props.setGithubName(e.target.value);
                     }}
                 />
                 <div className="start-page-form__input-group">
@@ -31,6 +44,8 @@ const StartPageForm = (props) => {
                             type="radio"
                             name="difficulty"
                             value="easy"
+                            onChange={(e) => props.setDifficulty(3)}
+                            checked={props.difficulty === 3}
                         />
                     </div>
                     <div className="start-page-form__input-group__radio-buttons">
@@ -40,6 +55,8 @@ const StartPageForm = (props) => {
                             type="radio"
                             name="difficulty"
                             value="hard"
+                            onChange={(e) => props.setDifficulty(6)}
+                            checked={props.difficulty === 6}
                         />
                     </div>
                 </div>

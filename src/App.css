@@ -1,5 +1,6 @@
 .App {
     text-align: center;
+    color: white;
 }
 
 .App-header {
@@ -8,7 +9,7 @@
     background-color: black;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .logo {

@@ -1,0 +1,18 @@
+.GamePageUser {
+    height: 100%;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 2rem;
+}
+
+.GamePageUser__image {
+    height: 8vh;
+    max-width: 8vh;
+    border-radius: 50%;
+}
+.GamePageUser__username {
+    color: white;
+}
