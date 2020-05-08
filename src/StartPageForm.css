@@ -26,43 +26,5 @@
 
 .start-page-form__input-group {
     display: flex;
+    margin-top: 1rem;
 }
-
-/* .start-page-form__input-group input[type="radio"] {
-    opacity: 0;
-    position: fixed;
-    width: 0;
-}
-
-.start-page-form__input-group label {
-    display: inline-block;
-    background-color: #ddd;
-    color: black;
-    padding: 10px 20px;
-    font-family: sans-serif, Arial;
-    font-size: 16px;
-    border: 2px solid #444;
-    border-radius: 4px;
-}
-
-.start-page-form__input-group label:hover {
-    background-color: #dfd;
-}
-
-.start-page-form__input-group input[type="radio"]:focus + label {
-    border: 2px dashed #444;
-}
-
-.start-page-form__input-group input[type="radio"]:checked + label {
-    background-color: #bfb;
-    border-color: #4c4;
-} */
-
-/* .start-page-form__input-group label input[type="radio"]:checked + label {
-    background-color: #bfb;
-    border-color: #4c4;
-}
-
-.start-page-form__input-group input[type="radio"]:focus + label {
-    border: 2px dashed #444;
-} */

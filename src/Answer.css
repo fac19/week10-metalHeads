@@ -12,6 +12,7 @@
     align-items: center;
     position: relative;
     min-width: 25vw;
+    font-family: "Cinzel Decorative", cursive;
 }
 
 .Answer:hover {
@@ -52,15 +53,17 @@
     /* smartphones, iPhone, portrait 480x320 phones */
     .Answer {
         padding: 0.1rem;
+        font-size: 0.5rem;
     }
     .Answer span {
         padding: 0.5rem;
+        font-size: 0.6rem;
     }
     .Answer__img {
         max-width: 15vw;
     }
     .Answer__isAnswerRight {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 }
 @media (min-width: 481px) {
