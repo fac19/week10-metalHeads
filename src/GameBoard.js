@@ -28,6 +28,34 @@ function GameBoard(props) {
     const [rightAnswer, setRightAnswer] = useState("");
     const [answerList, setAnswerList] = useState([]);
 
+    const handleAnswerClick = (answer) => {
+        console.log("HANDLER IN GAMEBOARD HAS:", answer);
+
+        // disable pointer events so elemnt cannot be clicked again
+        document.querySelectorAll("button").forEach((button) => {
+            console.log(button);
+            button.style.pointerEvents = "none";
+        });
+
+        if (answer.shortName === rightAnswer.shortName) {
+            props.setScore(props.score + 1);
+        } else {
+        }
+
+        setTimeout(() => {
+            // re-enable pointer events so elemnt can be clicked again once component reloads
+            document.querySelectorAll("button").forEach((button) => {
+                console.log(button);
+                button.style.pointerEvents = "auto";
+            });
+            if (props.questionCount === props.totalQuestions) {
+                props.setGameState("results");
+            } else {
+                props.setQuestionCount(props.questionCount + 1);
+            }
+        }, 2000);
+    };
+
     useEffect(() => {
         props.setGameState("game");
 
@@ -52,7 +80,7 @@ function GameBoard(props) {
                 let wrongAnswers = characterList.filter(
                     (elem) => elem.shortName !== choice.shortName
                 );
-                // radnomly populate the arr with elements from characterList
+                // randomly populate the arr with elements from characterList
                 for (let i = 0; i < props.difficulty; i++) {
                     let idx = getRandomInt(wrongAnswers.length - 1);
                     tmpAnswerList.push(wrongAnswers.splice(idx, 1)[0]);
@@ -65,13 +93,6 @@ function GameBoard(props) {
                 console.log("Problem getting quote", err);
             });
     }, [props.questionCount]);
-
-    // Create an array of answers where only one is the correct one
-    // const answerList = [
-    //     rightAnswer,
-    //     {shortName: "bran", longName: "Bradon Stark"},
-    //     {shortName: "cersei", longName: "Cersei Lannister"}
-    // ];
 
     return (
         <div className="GameBoard">
@@ -87,13 +108,7 @@ function GameBoard(props) {
                         key={index}
                         thisAnswer={answer}
                         rightAnswer={rightAnswer}
-                        setScore={props.setScore}
-                        score={props.score}
-                        totalQuestions={props.totalQuestions}
-                        // difficulty={props.difficulty}
-                        setGameState={props.setGameState}
-                        questionCount={props.questionCount}
-                        setQuestionCount={props.setQuestionCount}
+                        handleAnswerClick={handleAnswerClick}
                     />
                 ))}
             </div>
