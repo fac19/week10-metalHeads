@@ -31,9 +31,11 @@ const StartPageForm = (props) => {
                         props.setGithubName(e.target.value);
                     }}
                 />
-                <div className="start-page-form__input-group">
+
+                <fieldset className="start-page-form__input-group">
+                    <legend>Choose game mode:</legend>
                     <div className="start-page-form__input-group__radio-buttons">
-                        <label htmlFor="easyMode">Easy mode</label>
+                        <label htmlFor="easyMode">Easy</label>
                         <input
                             id="easyMode"
                             type="radio"
@@ -44,7 +46,7 @@ const StartPageForm = (props) => {
                         />
                     </div>
                     <div className="start-page-form__input-group__radio-buttons">
-                        <label htmlFor="hardMode">Hard mode</label>
+                        <label htmlFor="hardMode">Hard</label>
                         <input
                             id="hardMode"
                             type="radio"
@@ -57,7 +59,7 @@ const StartPageForm = (props) => {
                             checked={props.difficulty === 6}
                         />
                     </div>
-                </div>
+                </fieldset>
                 <label htmlFor="startButton">Press button to start</label>
                 <button id="startButton">START!</button>
             </form>
