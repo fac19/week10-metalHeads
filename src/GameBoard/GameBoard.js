@@ -31,7 +31,6 @@ function GameBoard(props) {
     const handleAnswerClick = (answer) => {
         // disable pointer events so element cannot be clicked again
         document.querySelectorAll("button").forEach((button) => {
-            console.log(button);
             button.style.pointerEvents = "none";
         });
         if (answer.shortName === rightAnswer.shortName) {
