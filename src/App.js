@@ -14,7 +14,7 @@ function App() {
     const [githubPicUrl, setGithubPicUrl] = useState(
         "https://i0.wp.com/www.repol.copl.ulaval.ca/wp-content/uploads/2019/01/default-user-icon.jpg"
     );
-    const [gameState, setGameState] = useState("game");
+    const [gameState, setGameState] = useState("start");
     const [questionCount, setQuestionCount] = useState(1);
     const [totalQuestions] = useState(5);
     const [difficulty, setDifficulty] = useState(3);
