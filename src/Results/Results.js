@@ -23,7 +23,7 @@ function Results(props) {
             </div>
             <img
                 className="Results__img"
-                src={require("./img/results/" + resultPics[props.score].pic)}
+                src={require("../img/results/" + resultPics[props.score].pic)}
                 alt="Result visual representation"
             ></img>
             <p className="Results__zinger">{resultPics[props.score].zinger}</p>

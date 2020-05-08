@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {errIfNot200ish, decodeJSONOrDie, getRandomInt} from "./utils";
+import {errIfNot200ish, decodeJSONOrDie, getRandomInt} from "../utils";
 import "./GameBoard.css";
-import Answer from "./Answer";
+import Answer from "../Answer/Answer";
 
 const characterList = [
     {shortName: "bran", longName: "Bradon Stark"},
