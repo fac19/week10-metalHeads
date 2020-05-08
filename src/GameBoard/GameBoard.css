@@ -10,12 +10,18 @@
 
 .GameBoard__answers {
     width: 100%;
-    display: flex;
+    display: grid;
+    height: 70%;
+    /* overflow: hidden; */
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
 .GameBoard__question {
+    flex-wrap: nowrap;
+    /* height: 20vh; */
     font-size: 2.5rem;
     font-weight: bold;
     text-decoration: underline;
@@ -23,6 +29,8 @@
 
 .GameBoard__quote {
     font-size: 1.8rem;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 @media (max-width: 420px) {
