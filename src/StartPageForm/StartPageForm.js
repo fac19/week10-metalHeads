@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import "./StartPageForm.css";
 import {errIfNot200ish, decodeJSONOrDie} from "../utils";
 
 const StartPageForm = (props) => {
+    const [isFormInputValid, setFormInputValid] = useState(false);
+    const [formErrorMessage, setFormErrorMessage] = useState("");
+
     function handleSubmit(e) {
         e.preventDefault();
         fetch(`https://api.github.com/users/${props.githubName}`)
@@ -14,7 +17,11 @@ const StartPageForm = (props) => {
             })
             .catch((err) => {
                 console.log("Problem getting profile pic, using default", err);
-                props.setGameState("game");
+                setFormErrorMessage(
+                    "Could't find github username, continue anyway?"
+                );
+                isFormInputValid && props.setGameState("game");
+                setFormInputValid(true);
             });
     }
 
@@ -30,6 +37,8 @@ const StartPageForm = (props) => {
                     onChange={(e) => {
                         props.setGithubName(e.target.value);
                     }}
+                    value={props.githubName}
+                    required
                 />
 
                 <fieldset className="start-page-form__input-group">
@@ -60,7 +69,11 @@ const StartPageForm = (props) => {
                         />
                     </div>
                 </fieldset>
+
                 <label htmlFor="startButton">Press button to start</label>
+                <div className="start-page-form__usernameErrorMessage">
+                    {formErrorMessage}
+                </div>
                 <button id="startButton">START!</button>
             </form>
         </div>

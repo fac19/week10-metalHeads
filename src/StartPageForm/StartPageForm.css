@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     background-color: black;
+    min-width: 50%;
     padding: 2rem;
     height: auto;
     justify-content: center;
@@ -27,4 +28,11 @@
 .start-page-form__input-group {
     display: flex;
     margin-top: 1rem;
+}
+
+.start-page-form__usernameErrorMessage {
+    height: 0.8rem;
+    font-size: 0.8rem;
+    max-width: 100%;
+    color: red;
 }
