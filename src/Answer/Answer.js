@@ -26,7 +26,7 @@ function Answer(props) {
         >
             <img
                 className="Answer__img"
-                src={require("./img/characters/" +
+                src={require("../img/characters/" +
                     props.thisAnswer.shortName +
                     ".jpg")}
                 alt="quiz answer button"

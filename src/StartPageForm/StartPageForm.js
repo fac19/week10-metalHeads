@@ -1,6 +1,6 @@
 import React from "react";
 import "./StartPageForm.css";
-import {errIfNot200ish, decodeJSONOrDie} from "./utils";
+import {errIfNot200ish, decodeJSONOrDie} from "../utils";
 
 const StartPageForm = (props) => {
     function handleSubmit(e) {

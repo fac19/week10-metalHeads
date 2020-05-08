@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import StartPageForm from "./StartPageForm";
-import GamePageUser from "./GamePageUser";
-import Score from "./Score";
-import GameBoard from "./GameBoard";
-import Results from "./Results";
+import StartPageForm from "./StartPageForm/StartPageForm";
+import GamePageUser from "./GamePageUser/GamePageUser";
+import Score from "./Score/Score";
+import GameBoard from "./GameBoard/GameBoard";
+import Results from "./Results/Results";
 import "./App.css";
 // logo
 import GameLogo from "./img/gameLogo";
