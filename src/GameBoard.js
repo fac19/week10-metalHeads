@@ -29,23 +29,17 @@ function GameBoard(props) {
     const [answerList, setAnswerList] = useState([]);
 
     const handleAnswerClick = (answer) => {
-        console.log("HANDLER IN GAMEBOARD HAS:", answer);
-
-        // disable pointer events so elemnt cannot be clicked again
+        // disable pointer events so element cannot be clicked again
         document.querySelectorAll("button").forEach((button) => {
             console.log(button);
             button.style.pointerEvents = "none";
         });
-
         if (answer.shortName === rightAnswer.shortName) {
             props.setScore(props.score + 1);
-        } else {
         }
-
         setTimeout(() => {
-            // re-enable pointer events so elemnt can be clicked again once component reloads
+            // re-enable pointer events so element can be clicked again once component reloads
             document.querySelectorAll("button").forEach((button) => {
-                console.log(button);
                 button.style.pointerEvents = "auto";
             });
             if (props.questionCount === props.totalQuestions) {
@@ -53,39 +47,40 @@ function GameBoard(props) {
             } else {
                 props.setQuestionCount(props.questionCount + 1);
             }
-        }, 2000);
+        }, 2000); // Wait for 2 seconds before proceeding to next question
     };
 
     useEffect(() => {
         props.setGameState("game");
 
+        // Remove a character at random from a copy of the characters array
+        // to give us our right answer and an array we can use to avoid dupes
         const chars = [...characters];
         const idx = getRandomInt(chars.length - 1);
-        const choice = chars.splice(idx, 1)[0];
+        const correctAnswer = chars.splice(idx, 1)[0];
         setCharacters(chars);
-        setRightAnswer(choice);
+        setRightAnswer(correctAnswer);
 
         fetch(
-            `https://got-quotes.herokuapp.com/quotes?char=${choice.shortName}`
+            `https://got-quotes.herokuapp.com/quotes?char=${correctAnswer.shortName}`
         )
             .then(errIfNot200ish)
             .then(decodeJSONOrDie)
             .then(({quote, character}) => {
-                // console.log("OUR ANSWER IS:", character);
-                // console.log("OUR QUOTE IS:", quote);
                 setQuestion(quote);
 
+                // Make a list of wrong answers then randomly insert
+                // the right answer
                 const tmpAnswerList = [];
-                // filter our correct answer from the characterList
                 let wrongAnswers = characterList.filter(
-                    (elem) => elem.shortName !== choice.shortName
+                    (character) =>
+                        character.shortName !== correctAnswer.shortName
                 );
-                // randomly populate the arr with elements from characterList
                 for (let i = 0; i < props.difficulty; i++) {
                     let idx = getRandomInt(wrongAnswers.length - 1);
                     tmpAnswerList.push(wrongAnswers.splice(idx, 1)[0]);
                 }
-                tmpAnswerList[getRandomInt(props.difficulty)] = choice;
+                tmpAnswerList[getRandomInt(props.difficulty)] = correctAnswer;
 
                 setAnswerList(tmpAnswerList);
             })
