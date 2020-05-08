@@ -1,6 +1,8 @@
 .App {
     text-align: center;
     color: white;
+    font-family: "Cinzel Decorative", cursive;
+    overflow: hidden;
 }
 
 .App-header {
@@ -67,8 +69,21 @@ aside {
     padding-left: 2rem;
 }
 
+button {
+    background-color: black;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
 @media (max-width: 420px) {
     /* smartphones, iPhone, portrait 480x320 phones */
+    .App {
+        height: 100vh;
+    }
     .level {
         padding-left: 0.5rem;
         font-size: 0.8rem;
@@ -85,15 +100,15 @@ aside {
 }
 @media (max-width: 961px) {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (max-width: 1225px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (max-width: 1381px) {
+    /* hi-res laptops and desktops */
     .App__game__container__right,
     .App__game__container__left {
         display: none;
     }
-}
-@media (min-width: 1025px) {
-    /* big landscape tablets, laptops, and desktops */
-}
-
-@media (min-width: 1281px) {
-    /* hi-res laptops and desktops */
 }
