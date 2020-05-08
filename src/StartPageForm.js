@@ -50,7 +50,10 @@ const StartPageForm = (props) => {
                             type="radio"
                             name="difficulty"
                             value="hard"
-                            onChange={(e) => props.setDifficulty(6)}
+                            onChange={(e) => {
+                                e.target.checked = true;
+                                props.setDifficulty(6);
+                            }}
                             checked={props.difficulty === 6}
                         />
                     </div>
